@@ -8,24 +8,24 @@ class PublicController extends BaseController {
   /**
    * Store our RepositoryInterface implementation.
    *
-   * @var Simple\Page\RepositoryInterface
+   * @var Simple\tag\RepositoryInterface
    */
-  protected $page;
+  protected $tag;
 
   /**
    * Set up the class
    *
-   * @param Simple\Page\RepositoryInterface $posts
+   * @param Simple\tag\RepositoryInterface $posts
    *
    * @return void
    */
-  public function __construct(RepositoryInterface $page)
+  public function __construct(RepositoryInterface $tag)
   {
     // Call the parent constructor just in case
     parent::__construct();
 
     // Set up our Model Interface
-    $this->page = $page;
+    $this->tag = $tag;
   }
 
   /**
@@ -35,10 +35,10 @@ class PublicController extends BaseController {
    */
   public function show($slug)
   {
-    return View::make('page::Public/Show', [
-      'metaTitle' => 'slug page title',
-      'metaDesciption' => 'slug page description',
-      'page' => $this->page->getFirstBy('slug', $slug)
+    return View::make('tag::Public/Show', [
+      'metaTitle' => 'slug tag title',
+      'metaDesciption' => 'slug tag description',
+      'tag' => $this->tag->getFirstBy('slug', $slug)
     ]);
   }
 

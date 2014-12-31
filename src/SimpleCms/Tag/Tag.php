@@ -2,7 +2,7 @@
 
 use SimpleCms\Core\BaseModel;
 
-class Page extends BaseModel {
+class Tag extends BaseModel {
 
   protected $fillable = [
     'slug',

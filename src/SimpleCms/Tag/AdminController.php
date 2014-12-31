@@ -11,7 +11,7 @@ class AdminController extends BaseController {
    *
    * @var SimpleCms\Tag\RepositoryInterface
    */
-  protected $page;
+  protected $tag;
 
   /**
    * Set up the class
@@ -37,7 +37,7 @@ class AdminController extends BaseController {
   public function index()
   {
     return view('tag::Admin/Index', [
-      'pages' => $this->tag->all(['parent'])
+      'tags' => $this->tag->all(['parent'])
     ]);
   }
 
@@ -49,7 +49,7 @@ class AdminController extends BaseController {
   public function create()
   {
     return view('tag::Admin/Form', [
-      'pages' => $this->tag->getSelectArray()
+      'tags' => $this->tag->getSelectArray()
     ]);
   }
 
@@ -77,7 +77,7 @@ class AdminController extends BaseController {
   {
     return view('tag::Admin/Form', [
       'tag' => $this->tag->getById($id),
-      'pages' => $this->tag->getSelectArray()
+      'tags' => $this->tag->getSelectArray()
     ]);
   }
 
@@ -109,7 +109,7 @@ class AdminController extends BaseController {
     {
       return Redirect::route('control.tag.index')->with([
         'flash-type' => 'success',
-        'flash-message' => 'Page successfully deleted!'
+        'flash-message' => 'tag successfully deleted!'
       ]);
     }
 
